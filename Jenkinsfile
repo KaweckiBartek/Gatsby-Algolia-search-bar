@@ -8,11 +8,6 @@ pipeline {
                 sh ('node --version')
             }
         }
-        stage('autoconf'){
-            steps{
-                sh ('npm i autoconf')
-            }
-        }
         stage('dependencies'){
             steps{
                 sh ('npm install')
