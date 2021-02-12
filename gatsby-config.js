@@ -1,3 +1,5 @@
+require("dotenv").config()
+
 module.exports = {
   siteMetadata: {
     title: `Gatsby Starter Blog`,
@@ -20,12 +22,28 @@ module.exports = {
       },
     },
     {
+      resolve: `gatsby-plugin-algolia`,
+      options: {
+        appId: process.env.GATSBY_ALGOLIA_APP_ID,
+        apiKey: process.env.ALGOLIA_ADMIN_KEY,
+        queries: require("./src/utils/algolia-queries")
+      },
+    },
+    {
       resolve: `gatsby-source-filesystem`,
       options: {
         path: `${__dirname}/content/assets`,
         name: `assets`,
       },
     },
+
+    {
+      resolve: `gatsby-plugin-typography`,
+      options: {
+        pathToConfigModule: `src/utils/typography`,
+      },
+    },
+
     {
       resolve: `gatsby-transformer-remark`,
       options: {
@@ -48,6 +66,7 @@ module.exports = {
         ],
       },
     },
+    `gatsby-plugin-styled-components`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     {
