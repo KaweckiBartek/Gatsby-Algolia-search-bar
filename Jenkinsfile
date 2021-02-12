@@ -5,18 +5,18 @@ pipeline {
     stages {
         stage('Test') {
             steps {
-                sh 'node --version'
+                sh ('node --version')
             }
         }
         stage('dependencies'){
             steps{
-                sh 'npm install',
-                sh 'npm install -g gatsby-cli'
+                sh ('npm install'),
+                sh ('npm install -g gatsby-cli')
             }
         }
         stage('build'){
             steps{
-                sh 'gatsby build'
+                sh ('gatsby build')
             }
         }
     }
