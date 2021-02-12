@@ -8,11 +8,6 @@ pipeline {
                 sh ('node --version')
             }
         }
-        stage('missing stuff'){
-            steps{
-                sh('apk add make nasm autoconf automake libtool dpkg pkgconfig libpng libpng-dev g++')
-            }
-        }
         stage('dependencies'){
             steps{
                 sh ('npm install')
