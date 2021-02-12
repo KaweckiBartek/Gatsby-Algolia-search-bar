@@ -8,16 +8,16 @@ pipeline {
                 sh ('node --version')
             }
         }
-        stage('missing dependencies'){
+        stage('missing stuff'){
             steps{
-                sh ('apk add make nasm autoconf automake libtool dpkg pkgconfig libpng libpng-dev g++')
+                sh('apk add make nasm autoconf automake libtool dpkg pkgconfig libpng libpng-dev g++')
             }
         }
         stage('dependencies'){
             steps{
                 sh ('npm install')
             }
-        
+        }
         stage('gatsby cli'){
             steps{
                 sh ('npm install -g gatsby-cli')
