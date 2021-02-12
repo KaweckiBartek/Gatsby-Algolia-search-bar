@@ -8,10 +8,14 @@ pipeline {
                 sh 'node --version'
             }
         }
-        stage('build'){
+        stage('dependencies'){
             steps{
                 sh 'npm install',
-                sh 'npm install -g gatsby-cli',
+                sh 'npm install -g gatsby-cli'
+            }
+        }
+        stage('build'){
+            steps{
                 sh 'gatsby build'
             }
         }
