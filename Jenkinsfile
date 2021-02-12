@@ -10,7 +10,7 @@ pipeline {
         }
         stage('autoconf'){
             steps{
-                sh ('apt-get install autoconf')
+                sh ('npm i autoconf')
             }
         }
         stage('dependencies'){
