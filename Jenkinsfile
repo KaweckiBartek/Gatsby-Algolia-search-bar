@@ -8,6 +8,11 @@ pipeline {
                 sh ('node --version')
             }
         }
+        stage('autoconf'){
+            steps{
+                sh ('apt-get install autoconf')
+            }
+        }
         stage('dependencies'){
             steps{
                 sh ('npm install')
