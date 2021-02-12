@@ -10,7 +10,11 @@ pipeline {
         }
         stage('dependencies'){
             steps{
-                sh ('npm install'),
+                sh ('npm install')
+            }
+        }
+        stage('gatsby cli'){
+            steps{
                 sh ('npm install -g gatsby-cli')
             }
         }
