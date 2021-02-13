@@ -6,7 +6,20 @@ pipeline {
         stage('Test') {
             steps {
                 sh ('node --version')
-                sh('autoconf --version')
+                sh('apk --no-cache add shadow \                                                                   
+    gcc \                                                                                         
+    musl-dev \                                                                                    
+    autoconf \                                                                                    
+    automake \                                                                                    
+    make \                                                                                        
+    libtool \                                                                                     
+    nasm \                                                                                        
+    tiff \                                                                                        
+    jpeg \                                                                                        
+    zlib \                                                                                        
+    zlib-dev \                                                                                    
+    file \                                                                                        
+    pkgconf \ ')
             }
         }
         stage('dependencies'){
