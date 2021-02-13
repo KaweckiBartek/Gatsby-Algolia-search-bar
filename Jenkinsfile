@@ -6,6 +6,7 @@ pipeline {
         stage('Test') {
             steps {
                 sh ('node --version')
+                sh('autoconf --version')
             }
         }
         stage('dependencies'){
