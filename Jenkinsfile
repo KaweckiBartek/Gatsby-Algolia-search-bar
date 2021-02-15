@@ -9,8 +9,8 @@ pipeline {
             }
         }
         stage('dependencies'){
-            sh('apk --no-cache add shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf')
             steps{
+                sh('apk --no-cache add shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf')
                 sh ('npm install')
             }
         }
