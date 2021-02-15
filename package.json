@@ -10,6 +10,7 @@
   "dependencies": {
     "@styled-icons/fa-solid": "^10.26.0",
     "algoliasearch": "^3.35.1",
+    "cypress": "^6.4.0",
     "gatsby": "^2.32.3",
     "gatsby-image": "^2.11.0",
     "gatsby-plugin-algolia": "^0.16.3",
@@ -43,7 +44,8 @@
   },
   "devDependencies": {
     "env-cmd": "^10.1.0",
-    "prettier": "2.2.1"
+    "prettier": "2.2.1",
+    "start-server-and-test": "^1.12.0"
   },
   "homepage": "https://github.com/gatsbyjs/gatsby-starter-blog#readme",
   "keywords": [
@@ -57,11 +59,15 @@
   },
   "scripts": {
     "build": "gatsby build",
-    "develop": "env-cmd .env gatsby develop",
+    "develop": "gatsby develop",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "cy:open": "cypress open",
+    "cy:run": "cypress run",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   }
 }

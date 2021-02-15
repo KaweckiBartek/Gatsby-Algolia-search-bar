@@ -6,10 +6,10 @@ pipeline {
         stage('Test') {
             steps {
                 sh ('node --version')
-                sh('apk --no-cache add shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf')
             }
         }
         stage('dependencies'){
+            sh('apk --no-cache add shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf')
             steps{
                 sh ('npm install')
             }
@@ -19,9 +19,9 @@ pipeline {
                 sh ('npm install -g gatsby-cli')
             }
         }
-        stage('build'){
+        stage('test:e2e'){
             steps{
-                sh ('gatsby build')
+                sh ('npm run test:e2e:ci')
             }
         }
     }

@@ -36,6 +36,7 @@ export default function Search({ indices }) {
           <StyledSearchResult
             show={query && query.length > 0 && hasFocus}
             indices={indices}
+            className="results"
           />
         </InstantSearch>
       </StyledSearchRoot>
