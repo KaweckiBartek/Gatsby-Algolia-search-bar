@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'cypress/browsers:chrome67' }
+        docker { image 'cypress/browsers:node14.15.0-chrome86-ff82' }
     }
     stages {
         stage('Test') {
@@ -10,7 +10,7 @@ pipeline {
         }
         stage('dependencies'){
             steps{
-                sh(' apt-get update')
+                sh(' apt-get update ')
                 sh ('npm ci')
             }
         }
