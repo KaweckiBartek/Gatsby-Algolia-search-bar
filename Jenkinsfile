@@ -11,7 +11,7 @@ pipeline {
         stage('dependencies'){
             steps{
                 sh('apk --no-cache add shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf xvfb')
-                sh ('npm install')
+                sh ('npm ci')
             }
         }
         stage('gatsby cli'){
