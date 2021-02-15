@@ -1,6 +1,6 @@
 pipeline {
     agent {
-        docker { image 'node:14-alpine' }
+        docker { image 'rbecheras/ubuntu-node' }
     }
     stages {
         stage('Test') {
@@ -10,7 +10,7 @@ pipeline {
         }
         stage('dependencies'){
             steps{
-                sh('apk --no-cache add shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf xvfb')
+                sh('apt-get update && apt-get install shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf xvfb')
                 sh ('npm ci')
             }
         }
@@ -22,6 +22,11 @@ pipeline {
         stage('test:e2e'){
             steps{
                 sh ('npm run test:e2e:ci')
+            }
+        }
+        stage('cleanup'){
+            steps{
+                sh('apt-get clean')
             }
         }
     }
