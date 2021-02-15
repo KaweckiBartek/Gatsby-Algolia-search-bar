@@ -10,7 +10,7 @@ pipeline {
         }
         stage('dependencies'){
             steps{
-                sh(' apt-get update && apt-get install shadow gcc musl-dev autoconf automake make libtool nasm tiff jpeg zlib zlib-dev file pkgconf xvfb')
+                sh(' apt-get update')
                 sh ('npm ci')
             }
         }
