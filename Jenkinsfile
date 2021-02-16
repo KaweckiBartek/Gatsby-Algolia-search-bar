@@ -11,7 +11,7 @@ pipeline {
         stage('dependencies'){
             steps{
                 sh(' apt-get update ')
-                sh ('npm ci')
+                sh ('npm install')
             }
         }
         stage('gatsby cli'){
